@@ -7,5 +7,4 @@ BEGIN
 	SELECT *
 	FROM [dbo].[MatchupEntries] ME
 	WHERE ME.Id = @MatchupId
-
 END

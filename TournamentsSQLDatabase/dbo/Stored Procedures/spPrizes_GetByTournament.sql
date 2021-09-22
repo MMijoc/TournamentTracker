@@ -2,7 +2,7 @@
 	@TournamentId INT
 AS
 BEGIN
-	--SET NOCOUNT ON;
+	SET NOCOUNT ON;
 
 	SELECT		p.*
 	FROM		dbo.Prizes p
