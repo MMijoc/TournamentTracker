@@ -1,11 +1,5 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TrackerLibrary
+namespace TrackerLibrary.Models
 {
 	/// <summary>
 	/// Represents what the prize is for the given place
