@@ -59,7 +59,6 @@ namespace TrackerUI
 			this.placeNumberLabel.Size = new System.Drawing.Size(192, 38);
 			this.placeNumberLabel.TabIndex = 9;
 			this.placeNumberLabel.Text = "Place Number";
-			this.placeNumberLabel.Click += new System.EventHandler(this.teamOneScoreLabel_Click);
 			// 
 			// createPrizeLabel
 			// 
@@ -78,6 +77,7 @@ namespace TrackerUI
 			this.prizeAmountValue.Name = "prizeAmountValue";
 			this.prizeAmountValue.Size = new System.Drawing.Size(316, 43);
 			this.prizeAmountValue.TabIndex = 13;
+			this.prizeAmountValue.Text = "0";
 			// 
 			// prizeAmountLabel
 			// 
@@ -105,7 +105,6 @@ namespace TrackerUI
 			this.placeNameLabel.Size = new System.Drawing.Size(164, 38);
 			this.placeNameLabel.TabIndex = 14;
 			this.placeNameLabel.Text = "Place Name";
-			this.placeNameLabel.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// prizePercentageValue
 			// 
@@ -113,6 +112,7 @@ namespace TrackerUI
 			this.prizePercentageValue.Name = "prizePercentageValue";
 			this.prizePercentageValue.Size = new System.Drawing.Size(316, 43);
 			this.prizePercentageValue.TabIndex = 17;
+			this.prizePercentageValue.Text = "0";
 			// 
 			// prizePercentageLabel
 			// 
@@ -149,6 +149,7 @@ namespace TrackerUI
 			this.createPrizeButton.TabIndex = 25;
 			this.createPrizeButton.Text = "Create Prize";
 			this.createPrizeButton.UseVisualStyleBackColor = false;
+			this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
 			// 
 			// CreatePrizeForm
 			// 
@@ -169,10 +170,9 @@ namespace TrackerUI
 			this.Controls.Add(this.placeNumberLabel);
 			this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "CreatePrizeForm";
 			this.Text = "Create Prize";
-			this.Load += new System.EventHandler(this.CreatePrizeForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

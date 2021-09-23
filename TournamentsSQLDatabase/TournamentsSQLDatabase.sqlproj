@@ -78,8 +78,14 @@
     <Build Include="dbo\Stored Procedures\spMatchupEntries_GetByMatchup.sql" />
     <Build Include="dbo\Stored Procedures\spPeople_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spMatchups_GetByTournament.sql" />
+    <Build Include="dbo\Stored Procedures\spTeam_GetByTournament.sql" />
+    <Build Include="dbo\Stored Procedures\spTeamMemebers_GetByTeam.sql" />
+    <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TournamentsSQLDatabase.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="TournamentsSQLDatabase.refactorlog" />
   </ItemGroup>
 </Project>
