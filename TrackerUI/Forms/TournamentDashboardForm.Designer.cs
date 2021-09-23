@@ -83,7 +83,6 @@ namespace TrackerUI
 			this.loadTournamentButton.TabIndex = 25;
 			this.loadTournamentButton.Text = "Load Tournament";
 			this.loadTournamentButton.UseVisualStyleBackColor = false;
-			this.loadTournamentButton.Click += new System.EventHandler(this.deleteSelectedTeamMemeberButton_Click);
 			// 
 			// createTournamentButton
 			// 
@@ -100,7 +99,6 @@ namespace TrackerUI
 			this.createTournamentButton.TabIndex = 26;
 			this.createTournamentButton.Text = "Create Tournament";
 			this.createTournamentButton.UseVisualStyleBackColor = false;
-			this.createTournamentButton.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// TournamentDashboardForm
 			// 
@@ -118,7 +116,6 @@ namespace TrackerUI
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "TournamentDashboardForm";
 			this.Text = "Torunament Dashboard";
-			this.Load += new System.EventHandler(this.TorunamentDashboardForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

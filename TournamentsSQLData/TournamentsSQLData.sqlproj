@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>TournamentsSQLDatabase</Name>
+    <Name>TournamentsSQLData</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{5985b77b-30d7-4af9-b155-f3779d5dec40}</ProjectGuid>
@@ -81,6 +81,7 @@
     <Build Include="dbo\Stored Procedures\spTeam_GetByTournament.sql" />
     <Build Include="dbo\Stored Procedures\spTeamMemebers_GetByTeam.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spPrizes.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TournamentsSQLDatabase.publish.xml" />

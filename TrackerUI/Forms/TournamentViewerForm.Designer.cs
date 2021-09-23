@@ -56,7 +56,6 @@ namespace TrackerUI
 			this.headerLabel.Size = new System.Drawing.Size(271, 62);
 			this.headerLabel.TabIndex = 0;
 			this.headerLabel.Text = "Tournament:";
-			this.headerLabel.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// tournamentName
 			// 
@@ -129,7 +128,6 @@ namespace TrackerUI
 			this.teamOneScoreLabel.Size = new System.Drawing.Size(86, 38);
 			this.teamOneScoreLabel.TabIndex = 7;
 			this.teamOneScoreLabel.Text = "Score";
-			this.teamOneScoreLabel.Click += new System.EventHandler(this.teamOneScoreLabel_Click);
 			// 
 			// teamOneScoreValue
 			// 
@@ -164,7 +162,6 @@ namespace TrackerUI
 			this.teamTwoName.Size = new System.Drawing.Size(170, 38);
 			this.teamTwoName.TabIndex = 9;
 			this.teamTwoName.Text = "<team two>";
-			this.teamTwoName.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// versusLabel
 			// 
@@ -175,7 +172,6 @@ namespace TrackerUI
 			this.versusLabel.Size = new System.Drawing.Size(87, 38);
 			this.versusLabel.TabIndex = 12;
 			this.versusLabel.Text = "- VS -";
-			this.versusLabel.Click += new System.EventHandler(this.versusLabel_Click);
 			// 
 			// scoreButton
 			// 

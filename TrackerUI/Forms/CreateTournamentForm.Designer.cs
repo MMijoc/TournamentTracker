@@ -1,7 +1,7 @@
 ﻿
 namespace TrackerUI
 {
-	partial class addTeamButton
+	partial class CreateTournamentForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@ namespace TrackerUI
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addTeamButton));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateTournamentForm));
 			this.createTournamentLabel = new System.Windows.Forms.Label();
 			this.tournamentNameValue = new System.Windows.Forms.TextBox();
 			this.tournamentNameLabel = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@ namespace TrackerUI
 			this.selectTeamDropdown = new System.Windows.Forms.ComboBox();
 			this.selectTeamLabel = new System.Windows.Forms.Label();
 			this.createNewTeamLink = new System.Windows.Forms.LinkLabel();
-			this.scoreButton = new System.Windows.Forms.Button();
+			this.addTeamButton = new System.Windows.Forms.Button();
 			this.createPrizeButton = new System.Windows.Forms.Button();
 			this.tournamentPlayersListBox = new System.Windows.Forms.ListBox();
 			this.tournamentPlayersLabel = new System.Windows.Forms.Label();
@@ -59,14 +59,12 @@ namespace TrackerUI
 			// 
 			resources.ApplyResources(this.tournamentNameValue, "tournamentNameValue");
 			this.tournamentNameValue.Name = "tournamentNameValue";
-			this.tournamentNameValue.TextChanged += new System.EventHandler(this.teamOneScoreValue_TextChanged);
 			// 
 			// tournamentNameLabel
 			// 
 			resources.ApplyResources(this.tournamentNameLabel, "tournamentNameLabel");
 			this.tournamentNameLabel.ForeColor = System.Drawing.Color.Blue;
 			this.tournamentNameLabel.Name = "tournamentNameLabel";
-			this.tournamentNameLabel.Click += new System.EventHandler(this.teamOneScoreLabel_Click);
 			// 
 			// entryFeeValue
 			// 
@@ -98,16 +96,16 @@ namespace TrackerUI
 			this.createNewTeamLink.Name = "createNewTeamLink";
 			this.createNewTeamLink.TabStop = true;
 			// 
-			// scoreButton
+			// addTeamButton
 			// 
-			this.scoreButton.BackColor = System.Drawing.Color.White;
-			this.scoreButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-			this.scoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-			this.scoreButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-			resources.ApplyResources(this.scoreButton, "scoreButton");
-			this.scoreButton.ForeColor = System.Drawing.Color.Blue;
-			this.scoreButton.Name = "scoreButton";
-			this.scoreButton.UseVisualStyleBackColor = false;
+			this.addTeamButton.BackColor = System.Drawing.Color.White;
+			this.addTeamButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+			this.addTeamButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+			this.addTeamButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+			resources.ApplyResources(this.addTeamButton, "addTeamButton");
+			this.addTeamButton.ForeColor = System.Drawing.Color.Blue;
+			this.addTeamButton.Name = "addTeamButton";
+			this.addTeamButton.UseVisualStyleBackColor = false;
 			// 
 			// createPrizeButton
 			// 
@@ -179,7 +177,7 @@ namespace TrackerUI
 			this.createTournamentButton.Name = "createTournamentButton";
 			this.createTournamentButton.UseVisualStyleBackColor = false;
 			// 
-			// addTeamButton
+			// CreateTournamentForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +190,7 @@ namespace TrackerUI
 			this.Controls.Add(this.tournamentPlayersLabel);
 			this.Controls.Add(this.tournamentPlayersListBox);
 			this.Controls.Add(this.createPrizeButton);
-			this.Controls.Add(this.scoreButton);
+			this.Controls.Add(this.addTeamButton);
 			this.Controls.Add(this.createNewTeamLink);
 			this.Controls.Add(this.selectTeamDropdown);
 			this.Controls.Add(this.selectTeamLabel);
@@ -201,7 +199,7 @@ namespace TrackerUI
 			this.Controls.Add(this.tournamentNameValue);
 			this.Controls.Add(this.tournamentNameLabel);
 			this.Controls.Add(this.createTournamentLabel);
-			this.Name = "addTeamButton";
+			this.Name = "CreateTournamentForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -217,7 +215,7 @@ namespace TrackerUI
 		private System.Windows.Forms.ComboBox selectTeamDropdown;
 		private System.Windows.Forms.Label selectTeamLabel;
 		private System.Windows.Forms.LinkLabel createNewTeamLink;
-		private System.Windows.Forms.Button scoreButton;
+		private System.Windows.Forms.Button addTeamButton;
 		private System.Windows.Forms.Button createPrizeButton;
 		private System.Windows.Forms.ListBox tournamentPlayersListBox;
 		private System.Windows.Forms.Label tournamentPlayersLabel;
