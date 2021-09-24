@@ -7,6 +7,30 @@ namespace TrackerLibrary.DataAccess
 	public class SqlConnector : IDataConnection
 	{
 		/// <summary>
+		/// Save new person to the databse.
+		/// </summary>
+		/// <param name="model">The perosn information</param>
+		/// <returns>The person information, including the unique identifier.</returns>
+		public PersonModel CreatePerson(PersonModel model)
+		{
+			using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+			{
+				var p = new DynamicParameters();
+				p.Add("@FirstName", model.FirstName);
+				p.Add("@LastName", model.LastName);
+				p.Add("@EmailAddress", model.EmailAddress);
+				p.Add("@CellphoneNumber", model.CellphoneNumber);
+				p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+				connection.Execute("dbo.spPeoples_Insert", p, commandType: CommandType.StoredProcedure);
+
+				model.Id = p.Get<int>("@Id");
+
+				return model;
+			}
+		}
+
+		/// <summary>
 		/// Save new prize to the database.
 		/// </summary>
 		/// <param name="model">The prize information</param>
@@ -30,5 +54,6 @@ namespace TrackerLibrary.DataAccess
 			}
 
 		}
+
 	}
 }

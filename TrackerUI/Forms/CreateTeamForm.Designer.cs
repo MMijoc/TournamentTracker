@@ -38,7 +38,7 @@ namespace TrackerUI
 			this.selectTeamMemberLabel = new System.Windows.Forms.Label();
 			this.addNewMemeberGroupBox = new System.Windows.Forms.GroupBox();
 			this.createMemberButton = new System.Windows.Forms.Button();
-			this.cellPhoneNimberValue = new System.Windows.Forms.TextBox();
+			this.cellPhoneNumberValue = new System.Windows.Forms.TextBox();
 			this.cellphoneNumberLabel = new System.Windows.Forms.Label();
 			this.emailValue = new System.Windows.Forms.TextBox();
 			this.emailLabel = new System.Windows.Forms.Label();
@@ -121,7 +121,7 @@ namespace TrackerUI
 			// addNewMemeberGroupBox
 			// 
 			this.addNewMemeberGroupBox.Controls.Add(this.createMemberButton);
-			this.addNewMemeberGroupBox.Controls.Add(this.cellPhoneNimberValue);
+			this.addNewMemeberGroupBox.Controls.Add(this.cellPhoneNumberValue);
 			this.addNewMemeberGroupBox.Controls.Add(this.cellphoneNumberLabel);
 			this.addNewMemeberGroupBox.Controls.Add(this.emailValue);
 			this.addNewMemeberGroupBox.Controls.Add(this.emailLabel);
@@ -151,13 +151,14 @@ namespace TrackerUI
 			this.createMemberButton.TabIndex = 20;
 			this.createMemberButton.Text = "Create Member";
 			this.createMemberButton.UseVisualStyleBackColor = false;
+			this.createMemberButton.Click += new System.EventHandler(this.CreateMemberButton_Click);
 			// 
-			// cellPhoneNimberValue
+			// cellPhoneNumberValue
 			// 
-			this.cellPhoneNimberValue.Location = new System.Drawing.Point(191, 251);
-			this.cellPhoneNimberValue.Name = "cellPhoneNimberValue";
-			this.cellPhoneNimberValue.Size = new System.Drawing.Size(220, 43);
-			this.cellPhoneNimberValue.TabIndex = 16;
+			this.cellPhoneNumberValue.Location = new System.Drawing.Point(191, 251);
+			this.cellPhoneNumberValue.Name = "cellPhoneNumberValue";
+			this.cellPhoneNumberValue.Size = new System.Drawing.Size(220, 43);
+			this.cellPhoneNumberValue.TabIndex = 16;
 			// 
 			// cellphoneNumberLabel
 			// 
@@ -300,7 +301,7 @@ namespace TrackerUI
 		private System.Windows.Forms.Label selectTeamMemberLabel;
 		private System.Windows.Forms.GroupBox addNewMemeberGroupBox;
 		private System.Windows.Forms.Button createMemberButton;
-		private System.Windows.Forms.TextBox cellPhoneNimberValue;
+		private System.Windows.Forms.TextBox cellPhoneNumberValue;
 		private System.Windows.Forms.Label cellphoneNumberLabel;
 		private System.Windows.Forms.TextBox emailValue;
 		private System.Windows.Forms.Label emailLabel;
