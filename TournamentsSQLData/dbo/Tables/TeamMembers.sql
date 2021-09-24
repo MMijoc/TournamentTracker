@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TeamMember] (
+﻿CREATE TABLE [dbo].[TeamMembers] (
 	[Id]       INT IDENTITY (1, 1) NOT NULL,
 	[TeamId]   INT NOT NULL,
 	[PersonId] INT NOT NULL,

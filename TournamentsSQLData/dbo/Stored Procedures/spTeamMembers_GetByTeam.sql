@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spTeamMemebers_GetByTeam]
+﻿CREATE PROCEDURE [dbo].[spTeamMembers_GetByTeams]
 	@TeamId INT
 AS
 BEGIN
@@ -10,7 +10,7 @@ BEGIN
 			P.EmailAddress,
 			P.CellphoneNumber
 
-	FROM [dbo].[TeamMember] TM
+	FROM [dbo].[TeamMembers] TM
 	JOIN [dbo].[People] P
 	ON P.[Id] = TM.[PersonId]
 	WHERE TM.[TeamId] = @TeamId

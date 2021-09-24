@@ -66,23 +66,24 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Teams.sql" />
     <Build Include="dbo\Tables\People.sql" />
-    <Build Include="dbo\Tables\TeamMember.sql" />
+    <Build Include="dbo\Tables\TeamMembers.sql" />
     <Build Include="dbo\Tables\Matchups.sql" />
     <Build Include="dbo\Tables\MatchupEntries.sql" />
     <Build Include="dbo\Tables\Tournaments.sql" />
     <Build Include="dbo\Tables\TournamentEntries.sql" />
     <Build Include="dbo\Tables\Prizes.sql" />
     <Build Include="dbo\Tables\TournamentPrizes.sql" />
-    <Build Include="dbo\Tables\TestTable.sql" />
     <Build Include="dbo\Stored Procedures\spPrizes_GetByTournament.sql" />
     <Build Include="dbo\Stored Procedures\spMatchupEntries_GetByMatchup.sql" />
     <Build Include="dbo\Stored Procedures\spPeople_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spMatchups_GetByTournament.sql" />
     <Build Include="dbo\Stored Procedures\spTeam_GetByTournament.sql" />
-    <Build Include="dbo\Stored Procedures\spTeamMemebers_GetByTeam.sql" />
+    <Build Include="dbo\Stored Procedures\spTeamMembers_GetByTeam.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spPrizes_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spPeoples_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTeams_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTeamMembers_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TournamentsSQLDatabase.publish.xml" />

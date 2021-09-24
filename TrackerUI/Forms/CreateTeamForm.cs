@@ -14,20 +14,9 @@ namespace TrackerUI
 		{
 			InitializeComponent();
 
-			//CreateSampleData();
 			WireUpLists();
 		}
 
-		private void CreateSampleData()
-		{
-			availabelTeamMemebers.Add(new PersonModel { FirstName = "Tim", LastName = "Corey" });
-			availabelTeamMemebers.Add(new PersonModel { FirstName = "Sue", LastName = "Storm" });
-
-			selectedTeamMemebers.Add(new PersonModel { FirstName = "Jane", LastName = "Smith" });
-			selectedTeamMemebers.Add(new PersonModel { FirstName = "Bill", LastName = "Jones" });
-		}
-
-		//Delete later
 		private void WireUpLists()
 		{
 			selectTeamMemberDropdown.DataSource = null;
@@ -113,6 +102,18 @@ namespace TrackerUI
 			}
 
 			WireUpLists();
+		}
+
+		private void CreateTeamButton_Click(object sender, System.EventArgs e)
+		{
+			var team = new TeamModel();
+
+			team.TeamName = teamNameValue.Text;
+			team.TeamMembers = selectedTeamMemebers;
+
+			team = GlobalConfig.Connection.CreateTeam(team);
+
+			// TODOD - If we aren't closing this form after creation, reset the fom
 		}
 	}
 }

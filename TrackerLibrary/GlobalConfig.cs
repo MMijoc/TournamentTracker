@@ -20,7 +20,6 @@ namespace TrackerLibrary
 				Connection = text;
 			}
 		}
-
 		public static string CnnString(string name)
 		{
 			return ConfigurationManager.ConnectionStrings[name].ConnectionString;
