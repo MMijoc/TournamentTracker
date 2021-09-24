@@ -17,7 +17,6 @@ namespace TrackerLibrary
 			}
 			else if (databaseType == DatabaseType.TextFile)
 			{
-				//TODO - Create the Text Connection
 				var text = new TextConnector();
 				Connection = text;
 			}
