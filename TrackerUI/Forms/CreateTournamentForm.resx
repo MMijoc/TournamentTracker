@@ -438,61 +438,61 @@
   <data name="&gt;&gt;tournamentPlayersLabel.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="deleteSelectedPlayerButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="removeSelectedPlayerButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 16.2pt, style=Bold</value>
   </data>
-  <data name="deleteSelectedPlayerButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="removeSelectedPlayerButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>887, 212</value>
   </data>
-  <data name="deleteSelectedPlayerButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="removeSelectedPlayerButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>243, 71</value>
   </data>
-  <data name="deleteSelectedPlayerButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="removeSelectedPlayerButton.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="deleteSelectedPlayerButton.Text" xml:space="preserve">
-    <value>Delete Selected</value>
+  <data name="removeSelectedPlayerButton.Text" xml:space="preserve">
+    <value>Remove Selected</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPlayerButton.Name" xml:space="preserve">
-    <value>deleteSelectedPlayerButton</value>
+  <data name="&gt;&gt;removeSelectedPlayerButton.Name" xml:space="preserve">
+    <value>removeSelectedPlayerButton</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPlayerButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPlayerButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPlayerButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPlayerButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPlayerButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPlayerButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="deleteSelectedPrizeButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="removeSelectedPrizeButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 16.2pt, style=Bold</value>
   </data>
-  <data name="deleteSelectedPrizeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="removeSelectedPrizeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="deleteSelectedPrizeButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="removeSelectedPrizeButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>887, 474</value>
   </data>
-  <data name="deleteSelectedPrizeButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="removeSelectedPrizeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>243, 72</value>
   </data>
-  <data name="deleteSelectedPrizeButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="removeSelectedPrizeButton.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="deleteSelectedPrizeButton.Text" xml:space="preserve">
-    <value>Delete Selected</value>
+  <data name="removeSelectedPrizeButton.Text" xml:space="preserve">
+    <value>Remove Selected</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPrizeButton.Name" xml:space="preserve">
-    <value>deleteSelectedPrizeButton</value>
+  <data name="&gt;&gt;removeSelectedPrizeButton.Name" xml:space="preserve">
+    <value>removeSelectedPrizeButton</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPrizeButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPrizeButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPrizeButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPrizeButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;deleteSelectedPrizeButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;removeSelectedPrizeButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="prizesLabel.AutoSize" type="System.Boolean, mscorlib">

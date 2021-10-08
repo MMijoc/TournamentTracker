@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
+using TrackerUIFrame;
 
 namespace TrackerUI
 {
@@ -9,10 +10,12 @@ namespace TrackerUI
 	{
 		private List<PersonModel> availabelTeamMemebers = GlobalConfig.Connection.GetPerson_All();
 		private List<PersonModel> selectedTeamMemebers = new List<PersonModel>();
+		private ITeamRequester callingForm;
 
-		public CreateTeamForm()
+		public CreateTeamForm(ITeamRequester caller)
 		{
 			InitializeComponent();
+			callingForm = caller;
 
 			WireUpLists();
 		}
@@ -112,9 +115,11 @@ namespace TrackerUI
 			team.TeamName = teamNameValue.Text;
 			team.TeamMembers = selectedTeamMemebers;
 
-			team = GlobalConfig.Connection.CreateTeam(team);
+			GlobalConfig.Connection.CreateTeam(team);
 
-			// TODOD - If we aren't closing this form after creation, reset the form
+			callingForm.TeamComplete(team);
+			this.Close();
+
 		}
 	}
 }
