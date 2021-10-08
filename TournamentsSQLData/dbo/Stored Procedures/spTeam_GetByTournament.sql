@@ -4,7 +4,7 @@ AS
 BEGIN
 	SET NOCOUNT ON
 
-	SELECT *
+	SELECT T.*
 	FROM [dbo].[Teams] T
 	JOIN [dbo].[TournamentEntries] TE
 	ON T.Id = TE.[TeamId]

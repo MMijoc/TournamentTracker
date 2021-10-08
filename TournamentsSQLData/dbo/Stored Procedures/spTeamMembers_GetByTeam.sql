@@ -1,15 +1,10 @@
-﻿CREATE PROCEDURE [dbo].[spTeamMembers_GetByTeams]
+﻿CREATE PROCEDURE [dbo].[spTeamMembers_GetByTeam]
 	@TeamId INT
 AS
 BEGIN
 	SET NOCOUNT ON
 
-	SELECT	P.Id,
-			P.FirstName,
-			P.LastName,
-			P.EmailAddress,
-			P.CellphoneNumber
-
+	SELECT *
 	FROM [dbo].[TeamMembers] TM
 	JOIN [dbo].[People] P
 	ON P.[Id] = TM.[PersonId]

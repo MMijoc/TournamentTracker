@@ -28,6 +28,7 @@ namespace TrackerUI
 			teamMembersListBox.DisplayMember = "FullName";
 
 		}
+
 		private void CreateMemberButton_Click(object sender, System.EventArgs e)
 		{
 			if (ValidateForm())
@@ -113,7 +114,7 @@ namespace TrackerUI
 
 			team = GlobalConfig.Connection.CreateTeam(team);
 
-			// TODOD - If we aren't closing this form after creation, reset the fom
+			// TODOD - If we aren't closing this form after creation, reset the form
 		}
 	}
 }

@@ -384,28 +384,28 @@
   <data name="&gt;&gt;createPrizeButton.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="tournamentPlayersListBox.ItemHeight" type="System.Int32, mscorlib">
+  <data name="tournamentTeamsListBox.ItemHeight" type="System.Int32, mscorlib">
     <value>37</value>
   </data>
-  <data name="tournamentPlayersListBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tournamentTeamsListBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>454, 154</value>
   </data>
-  <data name="tournamentPlayersListBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tournamentTeamsListBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>409, 187</value>
   </data>
-  <data name="tournamentPlayersListBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="tournamentTeamsListBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;tournamentPlayersListBox.Name" xml:space="preserve">
-    <value>tournamentPlayersListBox</value>
+  <data name="&gt;&gt;tournamentTeamsListBox.Name" xml:space="preserve">
+    <value>tournamentTeamsListBox</value>
   </data>
-  <data name="&gt;&gt;tournamentPlayersListBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;tournamentTeamsListBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tournamentPlayersListBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tournamentTeamsListBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tournamentPlayersListBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tournamentTeamsListBox.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="tournamentPlayersLabel.AutoSize" type="System.Boolean, mscorlib">
