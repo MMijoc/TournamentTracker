@@ -84,6 +84,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				{
 					model.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
 				}
+				output.Add(model);
 			}
 
 			return output;
