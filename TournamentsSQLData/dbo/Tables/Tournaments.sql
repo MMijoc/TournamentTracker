@@ -2,5 +2,6 @@
 	[Id]             INT            IDENTITY (1, 1) NOT NULL,
 	[TournamentName] NVARCHAR (100) NOT NULL,
 	[EntryFee]       MONEY          NOT NULL,
-	PRIMARY KEY CLUSTERED ([Id] ASC)
+	[Active]         BIT            NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );

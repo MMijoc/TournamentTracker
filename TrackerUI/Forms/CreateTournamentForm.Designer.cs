@@ -181,6 +181,7 @@ namespace TrackerUI
 			this.createTournamentButton.ForeColor = System.Drawing.Color.Blue;
 			this.createTournamentButton.Name = "createTournamentButton";
 			this.createTournamentButton.UseVisualStyleBackColor = false;
+			this.createTournamentButton.Click += new System.EventHandler(this.CreateTournamentButton_Click);
 			// 
 			// CreateTournamentForm
 			// 
