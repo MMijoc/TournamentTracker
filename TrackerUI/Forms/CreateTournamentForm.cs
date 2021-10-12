@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
+using TrackerLibraryFrame;
 using TrackerUIFrame;
 
 namespace TrackerUI
@@ -116,6 +117,7 @@ namespace TrackerUI
 			model.EnteredTeams = selectedTeams;
 
 			// TODO - Wire up matchups
+			TournamentLogic.CreateRounds(model);
 
 
 			// Create Tournament entry
