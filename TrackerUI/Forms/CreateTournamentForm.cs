@@ -92,7 +92,6 @@ namespace TrackerUI
 			{
 				selectedPrizes.Remove(prize);
 				WireUpLists();
-
 			}
 		}
 

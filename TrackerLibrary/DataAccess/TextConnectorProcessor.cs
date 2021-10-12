@@ -90,9 +90,44 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			return output;
 		}
 
-		public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
+		public static List<TournamentModel> ConvertToTournamentModels(
+			this List<string> lines,
+			string teamFileName,
+			string peopleFileName,
+			string prizeFileName)
 		{
+			//id, TorunamentName, EntryFee,(id|id|... - Entered Teams), (id|id|... Prizes), (id^id^...|id^id^...|.... - Rounds)
+			List<TournamentModel> output = new List<TournamentModel>();
+			List<TeamModel> teams = teamFileName.FullFilePath().LoadFile().ConvertToTeamsModels(peopleFileName);
+			List<PrizeModel> prizes = prizeFileName.FullFilePath().LoadFile().ConvertToPrizeModels();
 
+			foreach (var line in lines)
+			{
+				string[] colums = line.Split(',');
+				TournamentModel model = new TournamentModel();
+				model.Id = int.Parse(colums[0]);
+				model.TournnamentName = colums[1];
+				model.EntryFee = decimal.Parse(colums[2]);
+
+				string[] teamIds = colums[3].Split('|');
+
+				foreach (var id in teamIds)
+				{
+					model.EnteredTeams.Add(teams.Where(x => x.Id == int.Parse(id)).First());
+				}
+
+				string[] prizeIds = colums[4].Split('|');
+
+				foreach (var id in prizeIds)
+				{
+					model.Prizes.Add(prizes.Where(x => x.Id == int.Parse(id)).First());
+				}
+
+				// TODO - Capture Rounds infomratio
+				output.Add(model);
+			}
+
+			return output; ;
 		}
 		public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)
 		{
@@ -130,6 +165,24 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			File.WriteAllLines(fileName.FullFilePath(), lines);
 		}
 
+		public static void SaveToTournamentFile(this List<TournamentModel> models, string fileName)
+		{
+			var lines = new List<string>();
+
+			foreach (var model in models)
+			{
+				lines.Add($@"
+					{model.Id},
+					{model.TournnamentName},
+					{model.EntryFee},
+					{ConvertTeamListToString(model.EnteredTeams)},
+					{ConvertPrizeListToString(model.Prizes)},
+					{ConvertRoundListToString(model.Rounds)}");
+			}
+
+			File.WriteAllLines(fileName.FullFilePath(), lines);
+		}
+
 		/// <summary>
 		/// Converts List of PersonModel to the string containig preosn's Id's delimited with '|' (pipe) character
 		/// </summary>
@@ -152,5 +205,81 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 
 			return output;
 		}
+
+		private static string ConvertTeamListToString(List<TeamModel> teams)
+		{
+			var output = "";
+
+			if (teams.Count == 0)
+			{
+				return "";
+			}
+
+			foreach (var team in teams)
+			{
+				output += $"{team.Id}|";
+			}
+			output = output.Substring(0, output.Length - 1);
+
+			return output;
+		}
+
+		private static string ConvertPrizeListToString(List<PrizeModel> prizes)
+		{
+			var output = "";
+
+			if (prizes.Count == 0)
+			{
+				return "";
+			}
+
+			foreach (var prize in prizes)
+			{
+				output += $"{prize.Id}|";
+			}
+			output = output.Substring(0, output.Length - 1);
+
+			return output;
+		}
+
+		private static string ConvertRoundListToString(List<List<MatchupModel>> rounds)
+		{
+			var output = "";
+
+			if (rounds.Count == 0)
+			{
+				return "";
+			}
+
+			foreach (var matchups in rounds)
+			{
+				output += $"{ConvertMatchupListToString(matchups)}|";
+			}
+			output = output.Substring(0, output.Length - 1);
+
+			return output;
+		}
+
+		private static string ConvertMatchupListToString(List<MatchupModel> matchups)
+		{
+			var output = "";
+
+			if (matchups.Count == 0)
+			{
+				return "";
+			}
+
+			foreach (var matchup in matchups)
+			{
+				output += $"{matchup.Id}^";
+			}
+			output = output.Substring(0, output.Length - 1);
+
+			return output;
+		}
+
+
+
 	}
+
 }

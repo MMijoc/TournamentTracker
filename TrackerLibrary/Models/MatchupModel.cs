@@ -8,7 +8,10 @@ namespace TrackerLibrary.Models
 	public class MatchupModel
 	{
 		private static readonly List<MatchupEntryModel> matchupEntryModels = new List<MatchupEntryModel>();
-
+		/// <summary>
+		/// The unique identifier for the matchup
+		/// </summary>
+		public int Id { get; set; }
 		/// <summary>
 		/// The set of teams that were involved in this math
 		/// </summary>

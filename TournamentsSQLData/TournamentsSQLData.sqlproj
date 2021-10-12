@@ -86,6 +86,8 @@
     <Build Include="dbo\Stored Procedures\spTeamMembers_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spTeam_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTournamentPrizes_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTournamentEntries_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TournamentsSQLDatabase.publish.xml" />
