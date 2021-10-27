@@ -56,7 +56,6 @@ namespace TrackerLibrary.DataAccess
 
 				return model;
 			}
-
 		}
 
 		public TeamModel CreateTeam(TeamModel model)

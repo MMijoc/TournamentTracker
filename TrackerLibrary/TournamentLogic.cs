@@ -7,11 +7,6 @@ namespace TrackerLibrary
 {
 	public static class TournamentLogic
 	{
-		// Order our list randomly
-		// Check if it is big enough - if not add in byes
-		// Create first round of matchups
-		// Create every round after that egz. 8 -> 4 -> 2 -> 1 matchup
-
 		public static void CreateRounds(TournamentModel model)
 		{
 			var randomizedTeams = RandomizeTeamOrder(model.EnteredTeams);
@@ -48,8 +43,6 @@ namespace TrackerLibrary
 				currentRound = new List<MatchupModel>();
 				round += 1;
 			}
-
-
 		}
 
 		private static List<MatchupModel> CreateFirstRound(int byes, List<TeamModel> teams)
