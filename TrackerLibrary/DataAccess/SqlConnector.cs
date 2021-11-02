@@ -213,13 +213,12 @@ namespace TrackerLibrary.DataAccess
 		public List<TournamentModel> GetTournaments_All()
 		{
 			List<TournamentModel> output;
+			var p = new DynamicParameters();
 
 			using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
 			{
-
 				output = connection.Query<TournamentModel>("dbo.spTournaments_GetAll").ToList();
-				var p = new DynamicParameters();
-				
+
 				foreach (TournamentModel t in output)
 				{
 					// populate prizes
@@ -286,8 +285,8 @@ namespace TrackerLibrary.DataAccess
 
 						currentRow.Add(m);
 					}
-					t.Rounds.Add(currentRow);
 
+					t.Rounds.Add(currentRow);
 				}
 			}
 

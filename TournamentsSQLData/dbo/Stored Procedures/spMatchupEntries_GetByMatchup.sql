@@ -6,5 +6,5 @@ BEGIN
 
 	SELECT *
 	FROM [dbo].[MatchupEntries] ME
-	WHERE ME.Id = @MatchupId
+	WHERE ME.MatchupId = @MatchupId
 END

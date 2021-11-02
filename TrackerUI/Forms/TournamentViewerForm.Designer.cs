@@ -49,22 +49,22 @@ namespace TrackerUI
 			// headerLabel
 			// 
 			this.headerLabel.AutoSize = true;
-			this.headerLabel.Font = new System.Drawing.Font("Segoe UI Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.headerLabel.Font = new System.Drawing.Font("Segoe UI Light", 28.2F);
 			this.headerLabel.ForeColor = System.Drawing.Color.Blue;
 			this.headerLabel.Location = new System.Drawing.Point(12, 9);
 			this.headerLabel.Name = "headerLabel";
-			this.headerLabel.Size = new System.Drawing.Size(271, 62);
+			this.headerLabel.Size = new System.Drawing.Size(291, 65);
 			this.headerLabel.TabIndex = 0;
-			this.headerLabel.Text = "Tournament:";
+			this.headerLabel.Text = "Tournament: ";
 			// 
 			// tournamentName
 			// 
 			this.tournamentName.AutoSize = true;
-			this.tournamentName.Font = new System.Drawing.Font("Segoe UI Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.tournamentName.Font = new System.Drawing.Font("Segoe UI Light", 28.2F);
 			this.tournamentName.ForeColor = System.Drawing.Color.Blue;
-			this.tournamentName.Location = new System.Drawing.Point(264, 9);
+			this.tournamentName.Location = new System.Drawing.Point(270, 9);
 			this.tournamentName.Name = "tournamentName";
-			this.tournamentName.Size = new System.Drawing.Size(189, 62);
+			this.tournamentName.Size = new System.Drawing.Size(193, 65);
 			this.tournamentName.TabIndex = 1;
 			this.tournamentName.Text = "<none>";
 			// 
@@ -86,6 +86,7 @@ namespace TrackerUI
 			this.roundDropdown.Name = "roundDropdown";
 			this.roundDropdown.Size = new System.Drawing.Size(306, 45);
 			this.roundDropdown.TabIndex = 3;
+			this.roundDropdown.SelectedIndexChanged += new System.EventHandler(this.RoundDropdown_SelectedIndexChanged);
 			// 
 			// unplayedOnlyCheckbox
 			// 
@@ -108,6 +109,7 @@ namespace TrackerUI
 			this.matchupListbox.Name = "matchupListbox";
 			this.matchupListbox.Size = new System.Drawing.Size(409, 372);
 			this.matchupListbox.TabIndex = 5;
+			this.matchupListbox.SelectedIndexChanged += new System.EventHandler(this.MatchupListbox_SelectedIndexChanged);
 			// 
 			// teamOneName
 			// 
@@ -178,7 +180,7 @@ namespace TrackerUI
 			this.scoreButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
 			this.scoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
 			this.scoreButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-			this.scoreButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.scoreButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
 			this.scoreButton.ForeColor = System.Drawing.Color.Blue;
 			this.scoreButton.Location = new System.Drawing.Point(800, 458);
 			this.scoreButton.Name = "scoreButton";
@@ -207,7 +209,7 @@ namespace TrackerUI
 			this.Controls.Add(this.RoundLabel);
 			this.Controls.Add(this.tournamentName);
 			this.Controls.Add(this.headerLabel);
-			this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.Font = new System.Drawing.Font("Segoe UI", 16.2F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "TournamentViewerForm";

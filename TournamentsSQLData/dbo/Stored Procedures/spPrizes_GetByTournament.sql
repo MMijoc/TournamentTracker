@@ -7,6 +7,6 @@ BEGIN
 	SELECT		p.*
 	FROM		dbo.Prizes p
 	INNER JOIN	dbo.TournamentPrizes tp
-	ON			p.Id = tp.Id
+	ON			p.Id = tp.PrizeId
 	WHERE		tp.TournamentId = @TournamentId
 END

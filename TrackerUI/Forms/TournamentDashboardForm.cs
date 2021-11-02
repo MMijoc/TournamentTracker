@@ -21,10 +21,17 @@ namespace TrackerUI
 			loadExistingTournamentDropdown.DisplayMember = "TournamentName";
 		}
 
-		private void createTournamentButton_Click(object sender, System.EventArgs e)
+		private void CreateTournamentButton_Click(object sender, System.EventArgs e)
 		{
 			CreateTournamentForm frm = new CreateTournamentForm();
 			frm.Show();
+		}
+
+		private void LoadTournamentButton_Click(object sender, System.EventArgs e)
+		{
+			TournamentModel tm = (TournamentModel)loadExistingTournamentDropdown.SelectedItem;
+			TournamentViewerForm form = new TournamentViewerForm(tm);
+			form.Show();
 		}
 	}
 }
