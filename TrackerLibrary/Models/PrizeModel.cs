@@ -46,5 +46,4 @@ namespace TrackerLibrary.Models
 			PrizePercentage = prizePercentageValue;
 		}
 	}
-
 }

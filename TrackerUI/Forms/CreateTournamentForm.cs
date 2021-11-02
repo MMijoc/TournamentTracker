@@ -111,7 +111,7 @@ namespace TrackerUI
 			}
 
 			TournamentModel model = new TournamentModel();
-			model.TournnamentName = tournamentNameValue.Text;
+			model.TournamentName = tournamentNameValue.Text;
 			model.EntryFee = fee;
 			model.Prizes = selectedPrizes;
 			model.EnteredTeams = selectedTeams;

@@ -40,11 +40,11 @@ namespace TrackerUI
 			// createPrizeLabel
 			// 
 			this.createPrizeLabel.AutoSize = true;
-			this.createPrizeLabel.Font = new System.Drawing.Font("Segoe UI Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.createPrizeLabel.Font = new System.Drawing.Font("Segoe UI Light", 28.2F);
 			this.createPrizeLabel.ForeColor = System.Drawing.Color.Blue;
 			this.createPrizeLabel.Location = new System.Drawing.Point(52, 19);
 			this.createPrizeLabel.Name = "createPrizeLabel";
-			this.createPrizeLabel.Size = new System.Drawing.Size(488, 62);
+			this.createPrizeLabel.Size = new System.Drawing.Size(501, 65);
 			this.createPrizeLabel.TabIndex = 12;
 			this.createPrizeLabel.Text = "Tournament Dashboard";
 			// 
@@ -74,7 +74,7 @@ namespace TrackerUI
 			this.loadTournamentButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
 			this.loadTournamentButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
 			this.loadTournamentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-			this.loadTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.loadTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
 			this.loadTournamentButton.ForeColor = System.Drawing.Color.Blue;
 			this.loadTournamentButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.loadTournamentButton.Location = new System.Drawing.Point(158, 210);
@@ -90,7 +90,7 @@ namespace TrackerUI
 			this.createTournamentButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
 			this.createTournamentButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
 			this.createTournamentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-			this.createTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.createTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
 			this.createTournamentButton.ForeColor = System.Drawing.Color.Blue;
 			this.createTournamentButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.createTournamentButton.Location = new System.Drawing.Point(122, 351);
@@ -99,6 +99,7 @@ namespace TrackerUI
 			this.createTournamentButton.TabIndex = 26;
 			this.createTournamentButton.Text = "Create Tournament";
 			this.createTournamentButton.UseVisualStyleBackColor = false;
+			this.createTournamentButton.Click += new System.EventHandler(this.createTournamentButton_Click);
 			// 
 			// TournamentDashboardForm
 			// 
@@ -111,7 +112,7 @@ namespace TrackerUI
 			this.Controls.Add(this.loadExistingTournamentDropdown);
 			this.Controls.Add(this.loadExistingTournamentLabel);
 			this.Controls.Add(this.createPrizeLabel);
-			this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.Font = new System.Drawing.Font("Segoe UI", 16.2F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "TournamentDashboardForm";

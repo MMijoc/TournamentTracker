@@ -4,11 +4,8 @@ AS
 BEGIN
 	SET NOCOUNT ON
 
-	SELECT *
+	SELECT M.*
 	FROM [dbo].[Matchups] M
-	JOIN [dbo].[Teams] T
-	ON M.Id = T.Id
-	JOIN [dbo].[TournamentEntries] TE
-	ON TE.TeamId = T.Id
-	WHERE TE.TournamentId = @TournamentId
+	WHERE M.TournamentId = @TournamentId
+	ORDER BY MatchupRound
 END

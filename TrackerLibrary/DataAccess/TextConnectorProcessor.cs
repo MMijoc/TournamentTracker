@@ -108,7 +108,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				string[] colums = line.Split(',');
 				TournamentModel model = new TournamentModel();
 				model.Id = int.Parse(colums[0]);
-				model.TournnamentName = colums[1];
+				model.TournamentName = colums[1];
 				model.EntryFee = decimal.Parse(colums[2]);
 
 				string[] teamIds = colums[3].Split('|');
@@ -392,7 +392,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 
 			foreach (var model in models)
 			{
-				lines.Add($"{model.Id},{model.TournnamentName},{model.EntryFee},{ConvertTeamListToString(model.EnteredTeams)},{ConvertPrizeListToString(model.Prizes)},{ConvertRoundListToString(model.Rounds)}");
+				lines.Add($"{model.Id},{model.TournamentName},{model.EntryFee},{ConvertTeamListToString(model.EnteredTeams)},{ConvertPrizeListToString(model.Prizes)},{ConvertRoundListToString(model.Rounds)}");
 			}
 
 			File.WriteAllLines(fileName.FullFilePath(), lines);

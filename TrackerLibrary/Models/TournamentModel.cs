@@ -11,7 +11,7 @@ namespace TrackerLibrary.Models
 		/// <summary>
 		/// Name given to this tournament
 		/// </summary>
-		public string TournnamentName { get; set; }
+		public string TournamentName { get; set; }
 		/// <summary>
 		/// The amount of money each team needs to put up to enter.
 		/// </summary>
@@ -25,7 +25,7 @@ namespace TrackerLibrary.Models
 		/// </summary>
 		public List<PrizeModel> Prizes { get; set; } = new List<PrizeModel>();
 		/// <summary>
-		/// The matchups per round
+		/// The match-ups per round
 		/// </summary>
 		public List<List<MatchupModel>> Rounds { get; set; } = new List<List<MatchupModel>>();
 	}
