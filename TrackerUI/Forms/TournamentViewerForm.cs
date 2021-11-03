@@ -56,7 +56,7 @@ namespace TrackerUI
 			matchupListbox.DisplayMember = "DisplayName";
 		}
 
-		private void roundDropdown_SelectedIndexChanged(object sender, System.EventArgs e)
+		private void RoundDropdown_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			LoadMatchups((int)roundDropdown.SelectedItem);
 		}
@@ -147,12 +147,12 @@ namespace TrackerUI
 			}
 		}
 
-		private void matchupListbox_SelectedIndexChanged(object sender, System.EventArgs e)
+		private void MatchupListbox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			LoadMatchup((MatchupModel)matchupListbox.SelectedItem);
 		}
 
-		private void unplayedOnlyCheckbox_CheckedChanged(object sender, System.EventArgs e)
+		private void UnplayedOnlyCheckbox_CheckedChanged(object sender, System.EventArgs e)
 		{
 			LoadMatchups((int)roundDropdown.SelectedItem);
 		}
@@ -200,42 +200,9 @@ namespace TrackerUI
 				}
 			}
 
-			if (teamOneScore > teamTwoScore)
-			{
-				m.Winner = m.Entries[0].TeamCompeting;
-			}
-			else if (teamOneScore < teamTwoScore)
-			{
-				m.Winner = m.Entries[1].TeamCompeting;
-			}
-			else
-			{
-				MessageBox.Show("This program does not handle tie games");
-			}
-
-			foreach (List<MatchupModel> round in tournament.Rounds)
-			{
-				foreach (MatchupModel rm in round)
-				{
-					foreach (MatchupEntryModel me in rm.Entries)
-					{
-						if (me.ParentMatchup != null)
-						{
-							if (me.ParentMatchup.Id == m.Id)
-							{
-								me.TeamCompeting = m.Winner;
-								GlobalConfig.Connection.UpdateMatchup(rm);
-							} 
-						}
-					}
-				}
-			}
+			TournamentLogic.UpdateTournamentResults(tournament);
 
 			LoadMatchups((int)roundDropdown.SelectedItem);
-
-			GlobalConfig.Connection.UpdateMatchup(m);
-
-
 		}
 	}
 }
