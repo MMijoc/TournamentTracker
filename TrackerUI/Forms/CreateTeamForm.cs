@@ -43,7 +43,7 @@ namespace TrackerUI
 				model.EmailAddress = emailValue.Text;
 				model.CellphoneNumber = cellPhoneNumberValue.Text;
 
-				model = GlobalConfig.Connection.CreatePerson(model);
+				GlobalConfig.Connection.CreatePerson(model);
 
 				selectedTeamMemebers.Add(model);
 				WireUpLists();

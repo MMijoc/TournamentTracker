@@ -67,10 +67,10 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			return output;
 		}
 
-		public static List<TeamModel> ConvertToTeamsModels(this List<string> lines, string peopleFileName)
+		public static List<TeamModel> ConvertToTeamsModels(this List<string> lines)
 		{
 			var output = new List<TeamModel>();
-			List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModels();
+			List<PersonModel> people = GlobalConfig.PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
 
 			foreach (var line in lines)
 			{
@@ -91,16 +91,12 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			return output;
 		}
 
-		public static List<TournamentModel> ConvertToTournamentModels(
-			this List<string> lines,
-			string teamFileName,
-			string peopleFileName,
-			string prizeFileName)
+		public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
 		{
 			//id, TorunamentName, EntryFee,(id|id|... - Entered Teams), (id|id|... Prizes), (id^id^...|id^id^...|.... - Rounds)
 			List<TournamentModel> output = new List<TournamentModel>();
-			List<TeamModel> teams = teamFileName.FullFilePath().LoadFile().ConvertToTeamsModels(peopleFileName);
-			List<PrizeModel> prizes = prizeFileName.FullFilePath().LoadFile().ConvertToPrizeModels();
+			List<TeamModel> teams = GlobalConfig.TeamFile.FullFilePath().LoadFile().ConvertToTeamsModels();
+			List<PrizeModel> prizes = GlobalConfig.PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
 			List<MatchupModel> matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
 
 			foreach (var line in lines)
@@ -150,7 +146,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			return output; ;
 		}
 
-		public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)
+		public static void SaveToPrizeFile(this List<PrizeModel> models)
 		{
 			var lines = new List<string>();
 
@@ -159,10 +155,10 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				lines.Add($"{model.Id},{model.PlaceNumber},{model.PlaceName},{model.PrizeAmount},{model.PrizePercentage}");
 			}
 
-			File.WriteAllLines(fileName.FullFilePath(), lines);
+			File.WriteAllLines(GlobalConfig.PrizesFile.FullFilePath(), lines);
 		}
 
-		public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
+		public static void SaveToPeopleFile(this List<PersonModel> models)
 		{
 			var lines = new List<string>();
 
@@ -171,10 +167,10 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				lines.Add($"{model.Id},{model.FirstName},{model.LastName},{model.EmailAddress},{model.CellphoneNumber}");
 			}
 
-			File.WriteAllLines(fileName.FullFilePath(), lines);
+			File.WriteAllLines(GlobalConfig.PeopleFile.FullFilePath(), lines);
 		}
 
-		public static void SaveToTeamFile(this List<TeamModel> models, string fileName)
+		public static void SaveToTeamFile(this List<TeamModel> models)
 		{
 			var lines = new List<string>();
 
@@ -183,21 +179,21 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				lines.Add($"{model.Id},{model.TeamName},{ConvertPeopleListToString(model.TeamMembers)}");
 			}
 
-			File.WriteAllLines(fileName.FullFilePath(), lines);
+			File.WriteAllLines(GlobalConfig.TeamFile.FullFilePath(), lines);
 		}
 
-		public static void SaveRoundsToFile(this TournamentModel model, string MatchupFile, string MatchupEntryFile)
+		public static void SaveRoundsToFile(this TournamentModel model)
 		{
 			foreach (var round in model.Rounds)
 			{
 				foreach (var matchup in round)
 				{
-					matchup.SaveMatchupToFile(MatchupFile);
+					matchup.SaveMatchupToFile();
 				}
 			}
 		}
 		
-		public static void SaveMatchupToFile(this MatchupModel matchup, string matchupFile)
+		public static void SaveMatchupToFile(this MatchupModel matchup)
 		{
 			var matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
 
@@ -401,7 +397,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				{
 					List<string> matchingTeams = new List<string>();
 					matchingTeams.Add(team);
-					return matchingTeams.ConvertToTeamsModels(GlobalConfig.PeopleFile).First();
+					return matchingTeams.ConvertToTeamsModels().First();
 				}
 			}
 
@@ -456,7 +452,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 			return output;
 		}
 
-		public static void SaveToTournamentFile(this List<TournamentModel> models, string fileName)
+		public static void SaveToTournamentFile(this List<TournamentModel> models)
 		{
 			var lines = new List<string>();
 
@@ -465,7 +461,7 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 				lines.Add($"{model.Id},{model.TournamentName},{model.EntryFee},{ConvertTeamListToString(model.EnteredTeams)},{ConvertPrizeListToString(model.Prizes)},{ConvertRoundListToString(model.Rounds)}");
 			}
 
-			File.WriteAllLines(fileName.FullFilePath(), lines);
+			File.WriteAllLines(GlobalConfig.TournamentFile.FullFilePath(), lines);
 		}
 
 		/// <summary>
@@ -580,8 +576,6 @@ namespace TrackerLibraryFrame.DataAccess.TextHelpers
 
 			return output;
 		}
-
-
 	}
 
 }

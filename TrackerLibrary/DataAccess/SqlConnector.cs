@@ -15,7 +15,7 @@ namespace TrackerLibrary.DataAccess
 		/// </summary>
 		/// <param name="model">The perosn information</param>
 		/// <returns>The person information, including the unique identifier.</returns>
-		public PersonModel CreatePerson(PersonModel model)
+		public void CreatePerson(PersonModel model)
 		{
 			using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
 			{
@@ -29,8 +29,6 @@ namespace TrackerLibrary.DataAccess
 				connection.Execute("dbo.spPeoples_Insert", p, commandType: CommandType.StoredProcedure);
 
 				model.Id = p.Get<int>("@Id");
-
-				return model;
 			}
 		}
 
@@ -39,7 +37,7 @@ namespace TrackerLibrary.DataAccess
 		/// </summary>
 		/// <param name="model">The prize information</param>
 		/// <returns>The prize information, including the unique identifier.</returns>
-		public PrizeModel CreatePrize(PrizeModel model)
+		public void CreatePrize(PrizeModel model)
 		{
 			using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
 			{
@@ -53,12 +51,10 @@ namespace TrackerLibrary.DataAccess
 				connection.Execute("dbo.spPrizes_Insert", p, commandType: CommandType.StoredProcedure);
 
 				model.Id = p.Get<int>("@Id");
-
-				return model;
 			}
 		}
 
-		public TeamModel CreateTeam(TeamModel model)
+		public void CreateTeam(TeamModel model)
 		{
 			using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
 			{
@@ -78,8 +74,6 @@ namespace TrackerLibrary.DataAccess
 
 					connection.Execute("dbo.spTeamMembers_Insert", p, commandType: CommandType.StoredProcedure);
 				}
-
-				return model;
 			}
 		}
 
@@ -309,12 +303,15 @@ namespace TrackerLibrary.DataAccess
 
 				foreach (MatchupEntryModel me in model.Entries)
 				{
-					p = new DynamicParameters();
-					p.Add("Id", me.Id);
-					p.Add("TeamCompetingId", me.TeamCompeting.Id);
-					p.Add("Score", me.Score);
+					if (me.TeamCompeting != null)
+					{
+						p = new DynamicParameters();
+						p.Add("Id", me.Id);
+						p.Add("TeamCompetingId", me.TeamCompeting.Id);
+						p.Add("Score", me.Score);
 
-					connection.Execute("dbo.spMatchupEntries_Update", p, commandType: CommandType.StoredProcedure);
+						connection.Execute("dbo.spMatchupEntries_Update", p, commandType: CommandType.StoredProcedure); 
+					}
 				}
 			}
  		}
