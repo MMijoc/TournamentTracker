@@ -5,4 +5,5 @@ BEGIN
 	
 	SELECT *
 	FROM [dbo].[Tournaments]
+	WHERE Active = 1
 END
