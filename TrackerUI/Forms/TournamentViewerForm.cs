@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -159,9 +160,14 @@ namespace TrackerUI
 
 		private void ScoreButton_Click(object sender, System.EventArgs e)
 		{
+			string errorMessage = ValidateData();
+			if (errorMessage.Length > 0)
+			{
+				MessageBox.Show($"Input Error: {errorMessage}");
+				return;
+			}
+
 			MatchupModel m = (MatchupModel)matchupListbox.SelectedItem;
-			double teamOneScore = 0;
-			double teamTwoScore = 0;
 
 			for (int i = 0; i < m.Entries.Count; i++)
 			{
@@ -169,7 +175,7 @@ namespace TrackerUI
 				{
 					if (m.Entries[0].TeamCompeting != null)
 					{
-						bool scoreValid = double.TryParse(teamOneScoreValue.Text, out teamOneScore);
+						bool scoreValid = double.TryParse(teamOneScoreValue.Text, out double teamOneScore);
 
 						if (scoreValid)
 						{
@@ -186,7 +192,7 @@ namespace TrackerUI
 
 				if (i == 1)
 				{
-					bool scoreValid = double.TryParse(teamTwoScoreValue.Text, out teamTwoScore);
+					bool scoreValid = double.TryParse(teamTwoScoreValue.Text, out double teamTwoScore);
 
 					if (scoreValid)
 					{
@@ -200,9 +206,44 @@ namespace TrackerUI
 				}
 			}
 
-			TournamentLogic.UpdateTournamentResults(tournament);
+			try
+			{
+				TournamentLogic.UpdateTournamentResults(tournament);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"The application had the following error {ex.Message}");
+			}
 
 			LoadMatchups((int)roundDropdown.SelectedItem);
+		}
+
+
+		private string ValidateData()
+		{
+			string output = "";
+
+			bool scoreOneValid = double.TryParse(teamOneScoreValue.Text, out double teamOneScore);
+			bool scoreTwoValid = double.TryParse(teamTwoScoreValue.Text, out double teamTwoScore);
+
+			if (!scoreOneValid)
+			{
+				output = "The Score One value is not valid number.";
+			}
+			else if (!scoreTwoValid)
+			{
+				output = "The Score Two value is not valid number.";
+			}
+			else if (teamOneScore == 0 && teamTwoScore == 0)
+			{
+				output = "You did not enter a score for either team.";
+			}
+			else if (teamOneScore == teamTwoScore)
+			{
+				output = "We do not allow ties in this application.";
+			}
+
+			return output;
 		}
 	}
 }
