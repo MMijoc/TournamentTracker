@@ -116,14 +116,11 @@ namespace TrackerUI
 			model.Prizes = selectedPrizes;
 			model.EnteredTeams = selectedTeams;
 
-			// TODO - Wire up match-ups
 			TournamentLogic.CreateRounds(model);
 
-
-			// Create Tournament entry
-			// Create all of the prizes entries
-			// Create all of the team entries
 			GlobalConfig.Connection.CreateTournament(model);
+
+			model.AlertUsersToNewRound();
 
 			TournamentViewerForm form = new TournamentViewerForm(model);
 			form.Show();

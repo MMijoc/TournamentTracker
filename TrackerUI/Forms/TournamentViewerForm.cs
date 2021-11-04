@@ -213,12 +213,11 @@ namespace TrackerUI
 			catch (Exception ex)
 			{
 				MessageBox.Show($"The application had the following error {ex.Message}");
+				return;
 			}
 
 			LoadMatchups((int)roundDropdown.SelectedItem);
 		}
-
-
 		private string ValidateData()
 		{
 			string output = "";
