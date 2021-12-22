@@ -18,7 +18,6 @@ namespace TrackerLibrary.Models
 		/// The id for the parent match-up
 		/// </summary>
 		public int ParentMatchupId { get; set; }
-
 		/// <summary>
 		/// Represents one team in the match-up
 		/// </summary>
