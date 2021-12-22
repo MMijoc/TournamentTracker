@@ -2,6 +2,8 @@ using System;
 using System.Windows.Forms;
 using TrackerLibraryFrame.Enums;
 
+// TODO - Move to .NET 6
+
 namespace TrackerUI
 {
 	static class Program
