@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using TrackerLibraryFrame.Enums;
 
@@ -15,6 +15,7 @@ namespace TrackerUI
 		static void Main()
 		{
 			Application.EnableVisualStyles();
+			Application.SetHighDpiMode(HighDpiMode.SystemAware);
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			//Initialize the database connections
