@@ -6,24 +6,22 @@
     <Name>TournamentsSQLData</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{5985b77b-30d7-4af9-b155-f3779d5dec40}</ProjectGuid>
+    <ProjectGuid>{781b6223-01ab-45e7-bea6-3aec097f5f75}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>TournamentsSQLDatabase</RootNamespace>
-    <AssemblyName>TournamentsSQLDatabase</AssemblyName>
-    <ModelCollation>1033,CI</ModelCollation>
+    <RootNamespace>TournamentsSQLData</RootNamespace>
+    <AssemblyName>TournamentsSQLData</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
-    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -58,46 +56,43 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo\" />
-    <Folder Include="dbo\Tables\" />
-    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Stored Procedures" />
     <Folder Include="PublishLocations" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Teams.sql" />
-    <Build Include="dbo\Tables\People.sql" />
-    <Build Include="dbo\Tables\TeamMembers.sql" />
-    <Build Include="dbo\Tables\Matchups.sql" />
     <Build Include="dbo\Tables\MatchupEntries.sql" />
-    <Build Include="dbo\Tables\Tournaments.sql" />
-    <Build Include="dbo\Tables\TournamentEntries.sql" />
+    <Build Include="dbo\Tables\Matchups.sql" />
+    <Build Include="dbo\Tables\People.sql" />
     <Build Include="dbo\Tables\Prizes.sql" />
+    <Build Include="dbo\Tables\TeamMembers.sql" />
+    <Build Include="dbo\Tables\Teams.sql" />
+    <Build Include="dbo\Tables\TournamentEntries.sql" />
     <Build Include="dbo\Tables\TournamentPrizes.sql" />
-    <Build Include="dbo\Stored Procedures\spPrizes_GetByTournament.sql" />
+    <Build Include="dbo\Tables\Tournaments.sql" />
     <Build Include="dbo\Stored Procedures\spMatchupEntries_GetByMatchup.sql" />
-    <Build Include="dbo\Stored Procedures\spPeople_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spMatchupEntries_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spMatchupEntries_Update.sql" />
     <Build Include="dbo\Stored Procedures\spMatchups_GetByTournament.sql" />
+    <Build Include="dbo\Stored Procedures\spMatchups_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spMatchups_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spPeople_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spPeoples_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spPrizes_GetByTournament.sql" />
+    <Build Include="dbo\Stored Procedures\spPrizes_insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTeam_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spTeam_GetByTournament.sql" />
     <Build Include="dbo\Stored Procedures\spTeamMembers_GetByTeam.sql" />
-    <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
-    <Build Include="dbo\Stored Procedures\spPrizes_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spPeoples_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spTeams_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spTeamMembers_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spTeam_GetAll.sql" />
-    <Build Include="dbo\Stored Procedures\spTournaments_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spTournamentPrizes_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTeams_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spTournamentEntries_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spMatchups_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spMatchupEntries_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spMatchups_Update.sql" />
-    <Build Include="dbo\Stored Procedures\spMatchupEntries_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spTournamentPrizes_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_Complete.sql" />
+    <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spTournaments_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishLocations\TournamentsSQLDatabase.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="TournamentsSQLDatabase.refactorlog" />
+    <None Include="PublishLocations\TournamentsSQLData.publish.xml" />
   </ItemGroup>
 </Project>

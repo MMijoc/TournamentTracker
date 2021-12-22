@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31321.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TournamentsSQLData", "TournamentsSQLData\TournamentsSQLData.sqlproj", "{5985B77B-30D7-4AF9-B155-F3779D5DEC40}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TournamentsSQLData", "TournamentsSQLData\TournamentsSQLData.sqlproj", "{781B6223-01AB-45E7-BEA6-3AEC097F5F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerLibrary", "TrackerLibrary\TrackerLibrary.csproj", "{488C12E4-0BA9-4394-B54D-E6E26AF3F180}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerLibrary", "TrackerLibrary\TrackerLibrary.csproj", "{0F3D4B0D-5420-44EA-9CEE-1F4BC0442709}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{8D11F19E-06E7-408B-BC2E-3B690E6C7020}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,25 +15,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5985B77B-30D7-4AF9-B155-F3779D5DEC40}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{488C12E4-0BA9-4394-B54D-E6E26AF3F180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{488C12E4-0BA9-4394-B54D-E6E26AF3F180}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{488C12E4-0BA9-4394-B54D-E6E26AF3F180}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{488C12E4-0BA9-4394-B54D-E6E26AF3F180}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D11F19E-06E7-408B-BC2E-3B690E6C7020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D11F19E-06E7-408B-BC2E-3B690E6C7020}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D11F19E-06E7-408B-BC2E-3B690E6C7020}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D11F19E-06E7-408B-BC2E-3B690E6C7020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{781B6223-01AB-45E7-BEA6-3AEC097F5F75}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0F3D4B0D-5420-44EA-9CEE-1F4BC0442709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3D4B0D-5420-44EA-9CEE-1F4BC0442709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3D4B0D-5420-44EA-9CEE-1F4BC0442709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3D4B0D-5420-44EA-9CEE-1F4BC0442709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F7A1F0EF-388A-42A6-A49D-8F73F8BB7842}
+		SolutionGuid = {5193F020-1A0C-4384-9EB3-D3D8C88D0DA3}
 	EndGlobalSection
 EndGlobal
