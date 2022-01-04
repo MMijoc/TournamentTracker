@@ -4,7 +4,6 @@
 
 }
 
-
 <h1>@Model.Tournament.TournamentName</h1>
 <div>
 	Tournament Id: @Model.Tournament.Id
@@ -16,30 +15,13 @@
 	Entry Fee: @string.Format("{0:C2}", Model.Tournament.EntryFee)
 </div>
 
-
-<div class="accordion" id="accordionExample">
-	<div class="accordion-item">
-		<h2 class="accordion-header" id="headingOne">
-			<button class="accordion-button collapsed border border-2 border-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-				Entered Teams
-			</button>
-		</h2>
-
-		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-			<div class="accordion-body">
-				<ol class="list-group list-group-numbered">
-					@foreach (var team in Model.Tournament.EnteredTeams)
-					{
-						<li class="list-group-item">@team.TeamName</li>
-					}
-				</ol>
-			</div>
-		</div>
-	</div>
-</div>
+@if (Model.HasWinner)
+{
+	<h1 class="text-success text-center"><strong>@Model.WinnerName</strong> is the winner of this tournament</h1>
+}
 
 
-<h3 class="text-center pt-4">@Model.Tournament.TournamentName <text>'s bracket:</text></h3>
+<h2 class="text-center pt-4">@Model.Tournament.TournamentName <text>'s bracket:</text></h2>
 <div class="tournament-container pt-2">
 	<div class="tournament-headers">
 		@for (int round = 1; round <= Model.Tournament.Rounds.Count; round++)
@@ -55,27 +37,55 @@
 			<ul class="bracket">
 				@foreach (var matchup in Model.MatchupsPerRounds[round])
 				{
-					<li class="team-item button btn-secondary">
-						<div>
+					<li class="team-item btn btn-outline-dark">
+						<a asp-page="./MatchupDetails" asp-route-matchupId="@matchup.Id" asp-route-tournamentId="@Model.Tournament.Id" class="stretched-link text-reset text-decoration-none">
 							@matchup.DisplayName
 							<br />
 							@if (matchup.Entries.Count == 2)
 							{
 								@matchup.Entries[0].Score @:: @matchup.Entries[1].Score
 							}
-						</div>
+						</a>
+
 					</li>
+
 				}
 			</ul>
 		}
 		<ul class="bracket">
-			<li class="team-item">@Model.WinnerName</li>
+			<li class="team-item btn btn-outline-dark">
+				<a asp-page="./Teams/Details" asp-route-teamId="@Model.TournamentWinner.Id" class="stretched-link text-reset text-decoration-none">@Model.WinnerName</a>
+
+				
+			</li>
 
 		</ul>
 
 	</div>
 </div>
 
+<div class="accordion" id="enteredTeams">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="headingOne">
+			<button class="accordion-button collapsed border border-2 border-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				Entered Teams
+			</button>
+		</h2>
+
+		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#enteredTeams">
+			<div class="accordion-body">
+				<ol class="list-group list-group-numbered">
+					@foreach (var team in Model.Tournament.EnteredTeams)
+					{
+						<li class="list-group-item">
+							<a asp-page="./Teams/Details" asp-route-teamId="@team.Id" class="link-primary">@team.TeamName</a>
+						</li>
+					}
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 

@@ -14,7 +14,6 @@
 	<div class="d-flex justify-content-center">
 		<div class="col-md-6 text-center">
 			<h1>Create new tournament</h1>
-			<p>Press the button belove to create new tournament</p>
 			<p><a asp-page="./Tournaments/Create" class="btn btn-lg btn-outline-success">Create Tournament</a></p>
 			<br />
 		</div>
@@ -23,7 +22,7 @@
 	<div class="d-flex justify-content-center" style="padding: 5px 5px 5px 5px;">
 		<div class="col-md-8 text-center">
 			<h1>View existing tournament</h1>
-			<p>Select existing tournament to view it.</p>
+			<p>Search and view existing tournaments</p>
 
 			<form method="get">
 				<div class="input-group">
@@ -43,7 +42,7 @@
 		<div class="col-md-4 p-2">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title d-flex justify-content-center">@t.TournamentName</h3>
+					<h3 class="card-title d-flex justify-content-center text-primary">@t.TournamentName</h3>
 					<p class="card-text">
 						Number of rounds: @t.Rounds.Count
 						<br />Entry Fee: @string.Format("{0:C2}", t.EntryFee)

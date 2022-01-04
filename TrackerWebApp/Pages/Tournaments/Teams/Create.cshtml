@@ -29,6 +29,10 @@
 							<button type="submit" class="btn btn-lg btn-success">Create New Team</button>
 						</div>
 					</p>
+					@if (Model.ErrorMessage != null)
+					{
+						<div class="alert alert-info">@Model.ErrorMessage</div>
+					}
 				</div>
 
 			</form>

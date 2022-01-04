@@ -21,7 +21,7 @@ public static class TournamentLogic
 	public static void UpdateTournamentResults(TournamentModel model)
 	{
 		int startingRound = model.CheckCurrentRound();
-		List<MatchupModel> toScore = new List<MatchupModel>();
+		List<MatchupModel> toScore = new();
 
 		foreach (List<MatchupModel> round in model.Rounds)
 		{

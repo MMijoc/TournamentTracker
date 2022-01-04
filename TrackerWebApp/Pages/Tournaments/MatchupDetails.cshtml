@@ -1,0 +1,93 @@
+﻿@page "{tournamentId}/{matchupId:int}"
+@model TrackerWebApp.Pages.Tournaments.MatchupDetailsModel
+@{
+
+}
+
+<h1 class="text-center"><strong>@Model.Tournament.TournamentName</strong></h1>
+
+@if (Model.IsBye || Model.CurretnMatchup.IsDetermined == false || Model.CurretnMatchup.Winner != null)
+{
+	@if (Model.IsBye)
+	{
+		<h2 class="text-success text-center"><strong>@Model.CurretnMatchup.DisplayName</strong> gets a bye for this round</h2>
+	}
+	else if (Model.CurretnMatchup.Winner != null)
+	{
+		<h2 class="text-success text-center"><strong>@Model.CurretnMatchup.Winner.TeamName</strong> is the winner of this match</h2>
+	}
+
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-10 p-2">
+			<div class="card">
+				<form method="post">
+					<fieldset disabled>
+
+						<div class="card-body">
+							<h2 class="card-title text-center"><strong>@Model.CurretnMatchup.DisplayName</strong></h2>
+							<p class="card-text">
+								<div class="form-group">
+									<label asp-for="TeamOneScore">@Model.TeamOneName</label>
+									<input asp-for="TeamOneScore" class="form-control" />
+									<span class="text-danger" asp-validation-for="TeamOneScore"></span>
+								</div>
+							</p>
+
+							<p class="card-text">
+								<div class="form-group">
+									<label asp-for="TeamTwoScore">@Model.TeamTwoName</label>
+									<input asp-for="TeamTwoScore" class="form-control" />
+									<span class="text-danger" asp-validation-for="TeamTwoScore"></span>
+								</div>
+							</p>
+							<div class="form-group text-center pt-4">
+								<button type="submit" class="btn btn-lg btn-success">Submit Score</button>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+
+		</div>
+	</div>
+}
+else
+{
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-10 p-2">
+			<div class="card">
+				<form method="post">
+
+					<div class="card-body">
+						<h2 class="card-title text-center"><strong>@Model.CurretnMatchup.DisplayName</strong></h2>
+						<p class="card-text">
+							<div class="form-group">
+								<label asp-for="TeamOneScore">@Model.TeamOneName</label>
+								<input asp-for="TeamOneScore" class="form-control" />
+								<span class="text-danger" asp-validation-for="TeamOneScore"></span>
+							</div>
+						</p>
+						<h3 class="text-center"><strong>VS</strong></h3>
+						<p class="card-text">
+							<div class="form-group">
+								<label asp-for="TeamTwoScore">@Model.TeamTwoName</label>
+								<input asp-for="TeamTwoScore" class="form-control" />
+								<span class="text-danger" asp-validation-for="TeamTwoScore"></span>
+							</div>
+						</p>
+						<div class="form-group text-center pt-4">
+							<button type="submit" class="btn btn-lg btn-success">Submit Score</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+}
+
+<div class="d-flex justify-content-center pt-2">
+	<a asp-page="./Details" asp-route-tournamentId="@Model.Tournament.Id" class="btn btn-outline-primary">Back to the tournament bracket</a>
+</div>

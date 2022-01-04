@@ -9,7 +9,7 @@
 		<div class="col-md-6 text-center">
 			<h1>Create New Team</h1>
 			<p>Create new team and/or add new team members</p>
-			<p><a asp-page="./CreateTeam" class="btn btn-lg btn-success">Create New Team</a></p>
+			<p><a asp-page="./Create" class="btn btn-lg btn-success">Create New Team</a></p>
 			<br />
 		</div>
 	</div>
@@ -37,7 +37,7 @@
 		<div class="col-md-4 p-2">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title d-flex justify-content-center">@t.TeamName</h3>
+					<h3 class="card-title d-flex justify-content-center text-primary">@t.TeamName</h3>
 					<ol class="list-group list-group-numbered">
 						@foreach (var tm in t.TeamMembers)
 						{

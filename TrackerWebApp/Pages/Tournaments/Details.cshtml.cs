@@ -15,6 +15,10 @@ public class DetailsModel : PageModel
 
 	public string WinnerName { get; set; }
 
+	public TeamModel TournamentWinner { get; set; }
+
+	public bool HasWinner { get; set; }
+
 	public DetailsModel(IDataConnection dataConnection)
 	{
 		_dataConnection = dataConnection;
@@ -56,11 +60,15 @@ public class DetailsModel : PageModel
 		//var tmp = MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner;
 		if (MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner != null)
 		{
+			TournamentWinner = MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner;
 			WinnerName = MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner.TeamName;
+			HasWinner = true;
 		}
 		else
 		{
+			TournamentWinner = null;
 			WinnerName = "Winner not yet determined";
+			HasWinner = false;
 		}
 
 		return Page();

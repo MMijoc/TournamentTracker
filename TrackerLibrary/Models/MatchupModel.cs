@@ -41,7 +41,7 @@ public class MatchupModel
 					}
 					else
 					{
-						output += $" vs. {me.TeamCompeting.TeamName}";
+						output += $" vs {me.TeamCompeting.TeamName}";
 					}
 				}
 				else
@@ -54,4 +54,22 @@ public class MatchupModel
 			return output;
 		}
 	}
+
+	public bool IsDetermined
+	{
+		get
+		{
+			var output = true;
+			foreach (MatchupEntryModel me in Entries)
+			{
+				if (me.TeamCompeting == null)
+				{
+					output = false;
+				}
+			}
+
+			return output;
+		}
+	}
+
 }

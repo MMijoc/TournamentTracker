@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace TrackerLibrary.Models;
 
 /// <summary>
@@ -10,18 +12,25 @@ public class PersonModel
 	/// The unique identifier for the person
 	/// </summary>
 	public int Id { get; set; }
+
 	/// <summary>
 	/// The first name of the person
 	/// </summary>
+	[Required]
 	public string FirstName { get; set; }
+
 	/// <summary>
 	/// The last name of the person
 	/// </summary>
+	[Required]
 	public string LastName { get; set; }
+
 	/// <summary>
 	/// The primary email adrdress of the person
 	/// </summary>
+	[Required]
 	public string EmailAddress { get; set; }
+
 	/// <summary>
 	/// The primary cell phone number of the person
 	/// </summary>
