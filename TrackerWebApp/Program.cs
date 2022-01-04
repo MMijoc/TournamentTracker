@@ -1,4 +1,5 @@
 using TrackerLibrary.DataAccess;
+using TrackerLibrary.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,5 +24,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+TrackerLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
 app.Run();

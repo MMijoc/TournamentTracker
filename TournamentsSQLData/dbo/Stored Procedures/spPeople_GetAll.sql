@@ -5,4 +5,7 @@ BEGIN
 
 	SELECT *
 	FROM [dbo].[People]
+	ORDER BY 
+	[People].FirstName,
+	[People].LastName
 END

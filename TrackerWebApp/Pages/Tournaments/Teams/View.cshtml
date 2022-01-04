@@ -1,0 +1,56 @@
+﻿@page
+@model TrackerWebApp.Pages.Tournaments.Teams.ViewTeamsModel
+@{
+}
+<br />
+<div class="row">
+
+	<div class="d-flex justify-content-center">
+		<div class="col-md-6 text-center">
+			<h1>Create New Team</h1>
+			<p>Create new team and/or add new team members</p>
+			<p><a asp-page="./CreateTeam" class="btn btn-lg btn-success">Create New Team</a></p>
+			<br />
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center" style="padding: 5px 5px 5px 5px;">
+		<div class="col-md-8 text-center">
+			<h1>View existing teams</h1>
+			<p>Search for existing teams</p>
+
+			<form method="get">
+				<div class="input-group">
+					<input type="search" class="form-control" asp-for="SearchTerm" />
+					<button class="btn btn-primary">
+						Search
+					</button>
+					<a asp-route-SearchString="" class="btn btn-outline-primary">View all</a>
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+	@foreach (var t in Model.Teams)
+	{
+		<div class="col-md-4 p-2">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="card-title d-flex justify-content-center">@t.TeamName</h3>
+					<ol class="list-group list-group-numbered">
+						@foreach (var tm in t.TeamMembers)
+						{
+							<li class="list-group-item p-0">@tm.FirstName @tm.LastName</li>
+						}
+					</ol>
+
+					<div class="d-flex justify-content-center pt-2">
+						<a asp-page="./Details" asp-route-teamId="@t.Id" class="btn btn-outline-primary">View team details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+
+</div>

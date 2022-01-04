@@ -16,4 +16,9 @@ public interface IDataConnection
 	List<TeamModel> GetTeam_All();
 	List<PersonModel> GetPerson_All();
 	List<TournamentModel> GetTournaments_All();
+	TournamentModel GetTournament_ById(int id);
+	TeamModel GetTeam_ById(int id);
+	PersonModel GetPerson_ById(int id);
+	List<PersonModel> GetTeamMembers_ByTeamId(int teamId);
+
 }

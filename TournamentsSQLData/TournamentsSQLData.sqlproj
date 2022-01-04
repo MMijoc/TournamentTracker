@@ -91,8 +91,12 @@
     <Build Include="dbo\Stored Procedures\spTournaments_Complete.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spTournaments_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spTournaments_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spTeam_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spPerson_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TournamentsSQLData.publish.xml" />
+    <None Include="PublishLocations\Laptop-LocalDB.publish.xml" />
   </ItemGroup>
 </Project>

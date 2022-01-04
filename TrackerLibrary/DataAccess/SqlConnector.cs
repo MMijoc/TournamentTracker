@@ -9,9 +9,9 @@ public class SqlConnector : IDataConnection
 	private const string dbName = "Tournaments";
 
 	/// <summary>
-	/// Save new person to the databse.
+	/// Save new person to the database.
 	/// </summary>
-	/// <param name="model">The perosn information</param>
+	/// <param name="model">The person information</param>
 	/// <returns>The person information, including the unique identifier.</returns>
 	public void CreatePerson(PersonModel model)
 	{
@@ -325,5 +325,132 @@ public class SqlConnector : IDataConnection
 
 			connection.Execute("dbo.spTournaments_Complete", p, commandType: CommandType.StoredProcedure);
 		}
+	}
+
+	public TournamentModel GetTournament_ById(int id)
+	{
+		TournamentModel output;
+		var p = new DynamicParameters();
+
+		using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+		{
+			p = new DynamicParameters();
+			p.Add("@TournamentId", id);
+			output = connection.Query<TournamentModel>("dbo.spTournaments_GetById", p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+			if (output == null) return null;
+
+			// populate prizes
+			p = new DynamicParameters();
+			p.Add("@TournamentId", output.Id);
+			output.Prizes = connection.Query<PrizeModel>("dbo.spPrizes_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
+
+			// populate teams
+			p = new DynamicParameters();
+			p.Add("@TournamentId", output.Id);
+			output.EnteredTeams = connection.Query<TeamModel>("dbo.spTeam_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
+			foreach (var team in output.EnteredTeams)
+			{
+				p = new DynamicParameters();
+				p.Add("@TeamId", team.Id);
+
+				team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+			}
+
+			//populate rounds
+			p = new DynamicParameters();
+			p.Add("@TournamentId", output.Id);
+
+			List<MatchupModel> matchups = connection.Query<MatchupModel>("dbo.spMatchups_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
+			foreach (MatchupModel m in matchups)
+			{
+				p = new DynamicParameters();
+				p.Add("@MatchupId", m.Id);
+
+				m.Entries = connection.Query<MatchupEntryModel>("dbo.spMatchupEntries_GetByMatchup", p, commandType: CommandType.StoredProcedure).ToList();
+
+				List<TeamModel> allTeams = GetTeam_All();
+
+				if (m.WinnerId > 0)
+				{
+					m.Winner = allTeams.Where(x => x.Id == m.WinnerId).First();
+				}
+
+				foreach (var me in m.Entries)
+				{
+					if (me.TeamCompetingId > 0)
+					{
+						me.TeamCompeting = allTeams.Where(x => x.Id == me.TeamCompetingId).First();
+					}
+
+					if (me.ParentMatchupId > 0)
+					{
+						me.ParentMatchup = matchups.Where(x => x.Id == me.ParentMatchupId).First();
+					}
+				}
+			}
+
+			List<MatchupModel> currentRow = new List<MatchupModel>();
+			int currentRound = 1;
+
+			foreach (MatchupModel m in matchups)
+			{
+				if (m.MatchupRound > currentRound)
+				{
+					output.Rounds.Add(currentRow);
+					currentRow = new List<MatchupModel>();
+					currentRound++;
+				}
+
+				currentRow.Add(m);
+			}
+			output.Rounds.Add(currentRow);
+
+		}
+
+		return output;
+	}
+
+	public TeamModel GetTeam_ById(int id)
+	{
+		TeamModel output;
+		
+		using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+		{
+			var p = new DynamicParameters();
+			p.Add("@TeamId", id);
+			output = connection.Query<TeamModel>("spTeam_GetById", p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+		}
+
+		return output;
+	}
+
+	public PersonModel GetPerson_ById(int id)
+	{
+		PersonModel output;
+
+		using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+		{
+			var p = new DynamicParameters();
+			p.Add("@PersonId", id);
+			output = connection.Query<PersonModel>("spPerson_GetById", p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+		}
+
+		return output;
+	}
+
+	public List<PersonModel> GetTeamMembers_ByTeamId(int id)
+	{
+		List<PersonModel> output;
+
+		using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+		{
+			var p = new DynamicParameters();
+			p.Add("@TeamId", id);
+			output = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+		}
+
+		return output;
+
 	}
 }

@@ -1,0 +1,82 @@
+﻿@page "{tournamentId:int}"
+@model TrackerWebApp.Pages.Tournaments.DetailsModel
+@{
+
+}
+
+
+<h1>@Model.Tournament.TournamentName</h1>
+<div>
+	Tournament Id: @Model.Tournament.Id
+</div>
+<div>
+	Number of Rounds: @Model.Tournament.Rounds.Count
+</div>
+<div>
+	Entry Fee: @string.Format("{0:C2}", Model.Tournament.EntryFee)
+</div>
+
+
+<div class="accordion" id="accordionExample">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="headingOne">
+			<button class="accordion-button collapsed border border-2 border-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				Entered Teams
+			</button>
+		</h2>
+
+		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+			<div class="accordion-body">
+				<ol class="list-group list-group-numbered">
+					@foreach (var team in Model.Tournament.EnteredTeams)
+					{
+						<li class="list-group-item">@team.TeamName</li>
+					}
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<h3 class="text-center pt-4">@Model.Tournament.TournamentName <text>'s bracket:</text></h3>
+<div class="tournament-container pt-2">
+	<div class="tournament-headers">
+		@for (int round = 1; round <= Model.Tournament.Rounds.Count; round++)
+		{
+			<h3>Round @round</h3>
+		}
+		<h3>Winner</h3>
+	</div>
+
+	<div class="tournament-brackets">
+		@for (int round = 0; round < Model.Tournament.Rounds.Count; round++)
+		{
+			<ul class="bracket">
+				@foreach (var matchup in Model.MatchupsPerRounds[round])
+				{
+					<li class="team-item button btn-secondary">
+						<div>
+							@matchup.DisplayName
+							<br />
+							@if (matchup.Entries.Count == 2)
+							{
+								@matchup.Entries[0].Score @:: @matchup.Entries[1].Score
+							}
+						</div>
+					</li>
+				}
+			</ul>
+		}
+		<ul class="bracket">
+			<li class="team-item">@Model.WinnerName</li>
+
+		</ul>
+
+	</div>
+</div>
+
+
+
+
+

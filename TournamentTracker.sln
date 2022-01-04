@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerLibrary", "TrackerLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{A76A8E85-38C8-44E0-B7CC-1297A261A8DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerWebApp", "TrackerWebApp\TrackerWebApp.csproj", "{7D9F881D-B200-4A20-B070-EEEADCAD0EC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerWebApp", "TrackerWebApp\TrackerWebApp.csproj", "{7D9F881D-B200-4A20-B070-EEEADCAD0EC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

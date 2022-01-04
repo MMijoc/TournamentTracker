@@ -105,4 +105,25 @@ class TextConnector : IDataConnection
 
 		TournamentLogic.UpdateTournamentResults(model);
 	}
+
+	// TODO - Implement new TextConnector methods 
+	public TournamentModel GetTournament_ById(int id)
+	{
+		throw new NotImplementedException();
+	}
+
+	public TeamModel GetTeam_ById(int id)
+	{
+		throw new NotImplementedException();
+	}
+
+	public PersonModel GetPerson_ById(int id)
+	{
+		throw new NotImplementedException();
+	}
+
+	public List<PersonModel> GetTeamMembers_ByTeamId(int teamId)
+	{
+		throw new NotImplementedException();
+	}
 }

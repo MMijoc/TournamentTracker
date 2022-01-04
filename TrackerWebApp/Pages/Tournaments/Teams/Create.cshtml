@@ -1,0 +1,76 @@
+﻿@page
+@model TrackerWebApp.Pages.Tournaments.Teams.CreateTeamModel
+@{
+}
+
+
+<h1>Create New Team</h1>
+
+<div class="row d-flex align-items-center">
+
+	<div class="col-md-7 p-2">
+		<div class="card">
+			<form method="post" asp-page-handler="CreateNewTeam">
+
+				<div class="card-body">
+					<h2 class="card-title text-center">Create <strong>New Team</strong></h2>
+					<p class="card-text">
+						<div class="form-group">
+							<label asp-for="NewTeam.TeamName">Team Name</label>
+							<input asp-for="NewTeam.TeamName" class="form-control" />
+							<span class="text-danger" asp-validation-for="NewTeam.TeamName"></span>
+						</div>
+						<div class="form-group">
+							<label>Available Team Members</label>
+							<select class="form-control" size="12" asp-for="SelectedTeamMemeberIds"
+									asp-items="Model.TeamMemebersSelectList"></select>
+						</div>
+						<div class="form-group text-center pt-4">
+							<button type="submit" class="btn btn-lg btn-success">Create New Team</button>
+						</div>
+					</p>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	<div class="col-md-5 p-2">
+		<div class="card">
+			<form method="post" asp-page-handler="CreateNewPerson">
+
+				<div class="card-body">
+					<h3 class="card-title text-center">Create New <strong>Team Member</strong></h3>
+					<p class="card-text">
+						<div class="form-group">
+							<label asp-for="NewPerson.FirstName">First Name</label>
+							<input asp-for="NewPerson.FirstName" class="form-control" />
+							<span class="text-danger" asp-validation-for="NewPerson.FirstName"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="NewPerson.LastName">Last Name</label>
+							<input asp-for="NewPerson.LastName" class="form-control" />
+							<span class="text-danger" asp-validation-for="NewPerson.LastName"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="NewPerson.EmailAddress">Email Address</label>
+							<input asp-for="NewPerson.EmailAddress" class="form-control" />
+							<span class="text-danger" asp-validation-for="NewPerson.EmailAddress"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="NewPerson.CellphoneNumber">Cellphone Number</label>
+							<input asp-for="NewPerson.CellphoneNumber" class="form-control" />
+							<span class="text-danger" asp-validation-for="NewPerson.CellphoneNumber"></span>
+						</div>
+						<div class="form-group text-center pt-4">
+							<button type="submit" class="btn btn-lg btn-success">Create New Team Member</button>
+						</div>
+					</p>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+
+</div>
