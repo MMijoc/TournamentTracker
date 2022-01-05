@@ -1,12 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TrackerWebApp.Pages.Tournaments
+namespace TrackerWebApp.Pages.Tournaments;
+
+public class NotFoundModel : PageModel
 {
-    public class NotFoundModel : PageModel
-    {
-        public void OnGet()
-        {
-        }
-    }
+	public void OnGet()
+	{
+	}
 }

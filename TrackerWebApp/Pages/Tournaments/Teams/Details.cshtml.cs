@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TrackerLibrary;
 using TrackerLibrary.Models;
@@ -8,6 +7,7 @@ namespace TrackerWebApp.Pages.Tournaments.Teams;
 public class DetailsModel : PageModel
 {
 	public TeamModel Team { get; set; }
+
 
 	public void OnGet(int teamId)
 	{

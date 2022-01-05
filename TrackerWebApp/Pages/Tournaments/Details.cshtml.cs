@@ -1,49 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TrackerLibrary.DataAccess;
+using TrackerLibrary;
 using TrackerLibrary.Models;
 
 namespace TrackerWebApp.Pages.Tournaments;
 
 public class DetailsModel : PageModel
 {
-	private readonly IDataConnection _dataConnection;
-
 	public TournamentModel Tournament { get; set; }
-
 	public List<MatchupModel>[] MatchupsPerRounds { get; set; }
-
 	public string WinnerName { get; set; }
-
 	public TeamModel TournamentWinner { get; set; }
-
 	public bool HasWinner { get; set; }
 
-	public DetailsModel(IDataConnection dataConnection)
-	{
-		_dataConnection = dataConnection;
-	}
-
-	private void LoadMatchups(int round)
-	{
-		foreach (List<MatchupModel> matchups in Tournament.Rounds)
-		{
-			if (matchups.First().MatchupRound == round)
-			{
-				foreach (MatchupModel m in matchups)
-				{
-					//if (m.Winner == null /*|| !unplayedOnlyCheckbox.Checked*/)
-					//{
-					MatchupsPerRounds[round - 1].Add(m);
-					//}
-				}
-			}
-		}
-	}
 
 	public IActionResult OnGet(int tournamentId)
 	{
-		Tournament = _dataConnection.GetTournament_ById(tournamentId);
+		Tournament = GlobalConfig.Connection.GetTournament_ById(tournamentId);
 		if (Tournament == null)
 		{
 			return RedirectToPage("./NotFound");
@@ -57,7 +30,6 @@ public class DetailsModel : PageModel
 			LoadMatchups(i + 1);
 		}
 
-		//var tmp = MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner;
 		if (MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner != null)
 		{
 			TournamentWinner = MatchupsPerRounds[Tournament.Rounds.Count - 1].First().Winner;
@@ -75,7 +47,17 @@ public class DetailsModel : PageModel
 	}
 
 
-
-
-
+	private void LoadMatchups(int round)
+	{
+		foreach (List<MatchupModel> matchups in Tournament.Rounds)
+		{
+			if (matchups.First().MatchupRound == round)
+			{
+				foreach (MatchupModel m in matchups)
+				{
+					MatchupsPerRounds[round - 1].Add(m);
+				}
+			}
+		}
+	}
 }

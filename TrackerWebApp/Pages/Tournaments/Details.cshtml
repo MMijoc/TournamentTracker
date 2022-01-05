@@ -6,9 +6,6 @@
 
 <h1>@Model.Tournament.TournamentName</h1>
 <div>
-	Tournament Id: @Model.Tournament.Id
-</div>
-<div>
 	Number of Rounds: @Model.Tournament.Rounds.Count
 </div>
 <div>
@@ -43,7 +40,7 @@
 							<br />
 							@if (matchup.Entries.Count == 2)
 							{
-								@matchup.Entries[0].Score @:: @matchup.Entries[1].Score
+								<div class="text-danger">@matchup.Entries[0].Score : @matchup.Entries[1].Score</div>
 							}
 						</a>
 
@@ -53,12 +50,16 @@
 			</ul>
 		}
 		<ul class="bracket">
-			<li class="team-item btn btn-outline-dark">
-				<a asp-page="./Teams/Details" asp-route-teamId="@Model.TournamentWinner.Id" class="stretched-link text-reset text-decoration-none">@Model.WinnerName</a>
-
-				
-			</li>
-
+			@if (Model.TournamentWinner != null)
+			{
+				<li class="team-item btn btn-outline-dark">
+					<a asp-page="./Teams/Details" asp-route-teamId="@Model.TournamentWinner.Id" class="stretched-link text-reset text-decoration-none">@Model.WinnerName</a>
+				</li>
+			}
+			else
+			{
+				<li class="team-item btn btn-outline-dark">@Model.WinnerName</li>
+			}
 		</ul>
 
 	</div>

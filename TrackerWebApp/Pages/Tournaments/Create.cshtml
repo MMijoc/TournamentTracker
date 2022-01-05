@@ -19,16 +19,22 @@
 							<input asp-for="NewTournament.TournamentName" class="form-control" />
 							<span class="text-danger" asp-validation-for="NewTournament.TournamentName"></span>
 						</div>
-						<div class="form-group col-md-8">
+						<div class="form-group col-md-8 pt-2">
 							<label asp-for="NewTournament.EntryFee">Entry Fee</label>
 							<input asp-for="NewTournament.EntryFee" class="form-control" />
 							<span class="text-danger" asp-validation-for="NewTournament.EntryFee"></span>
 						</div>
-						<div class="form-group col-md-12">
+						<div class="form-group col-md-12 pt-2">
 							<label asp-for="NewTournament.EnteredTeams"></label>
+							<div class="text-info">*To select and unselect team members use "CTRL" button and right mouse button</div>
+							@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+							{
+								<div class="alert alert-danger md10">@Model.ErrorMessage</div>
+							}
 							<select class="form-control" size="15" asp-for="SelectedTeamsIds"
 									asp-items="Model.TeamsSelectList"></select>
-							<span class="text-danger" asp-validation-for="NewTournament.TournamentName"></span>
+							<span class="text-danger" asp-validation-for="SelectedTeamsIds.Count"></span>
+
 							<div class="text-center pt-1">
 								<a asp-page="./Teams/Create" class="btn btn-toolbar btn-outline-primary">Create New Team</a>
 							</div>

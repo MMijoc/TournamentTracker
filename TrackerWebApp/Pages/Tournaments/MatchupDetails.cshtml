@@ -5,6 +5,10 @@
 }
 
 <h1 class="text-center"><strong>@Model.Tournament.TournamentName</strong></h1>
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+	<div class="alert alert-danger md10">@Model.ErrorMessage</div>
+}
 
 @if (Model.IsBye || Model.CurretnMatchup.IsDetermined == false || Model.CurretnMatchup.Winner != null)
 {
@@ -68,7 +72,6 @@ else
 								<span class="text-danger" asp-validation-for="TeamOneScore"></span>
 							</div>
 						</p>
-						<h3 class="text-center"><strong>VS</strong></h3>
 						<p class="card-text">
 							<div class="form-group">
 								<label asp-for="TeamTwoScore">@Model.TeamTwoName</label>

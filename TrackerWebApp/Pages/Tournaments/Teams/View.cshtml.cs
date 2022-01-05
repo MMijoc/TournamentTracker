@@ -11,6 +11,8 @@ public class ViewTeamsModel : PageModel
 
 	[BindProperty(SupportsGet = true)]
 	public string SearchTerm { get; set; }
+
+
 	public void OnGet()
 	{
 		Teams = GlobalConfig.Connection.GetTeam_All();
@@ -25,5 +27,4 @@ public class ViewTeamsModel : PageModel
 				Where(t => t.TeamName.ToLower().Contains(SearchTerm.ToLower())).ToList();
 		}
 	}
-
 }
